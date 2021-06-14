@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Do dream</title>
+<title>모각코</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -19,6 +19,9 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/resources/css/main.css" />
+<!-- 썸머노트  -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 <noscript>
 	<link rel="stylesheet" href="/resources/css/noscript.css" />
 </noscript>
@@ -33,7 +36,7 @@
 
 							<!-- Logo -->
 								<a href="/" class="logo">
-									<span class="symbol"><img src="/resources/images/logo.svg" alt="" /></span><span class="title">Do Dream</span>
+									<span class="symbol"><img src="/resources/images/logo.svg" alt="" /></span><span class="title">모각코</span>
 								</a>
 
 							<!-- Nav -->
@@ -53,7 +56,7 @@
 							<li><a href="/">Home</a></li>
 							<li><a href="/board/notice">공지사항</a></li>
 							<li><a href="/board/list">커뮤니티</a></li>
-							<li><a href="/challenge/list">챌린지</a></li>
+							<li><a href="/curriculum/list">커리큘럼</a></li>
 							<li><a href="/member/login">로그인</a></li>
 							<li><a href="/member/join">회원가입</a></li>
 							<li><a href="/member/join">정보수정</a></li>

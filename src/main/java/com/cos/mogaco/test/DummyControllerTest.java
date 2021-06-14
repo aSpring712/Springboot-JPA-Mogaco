@@ -44,6 +44,7 @@ public class DummyControllerTest {
 	// email, password 두가지만 수정
 	@PutMapping("/dummy/user/{id}")
 	public User updateUser(@PathVariable int id, @RequestBody User requestUser) { // json 데이터를 받아오려면 @RequestBody 필요
+		// json 데이터를 요청 => Java Object(MessageConverter)로 변환해서 받아줌
 		System.out.println("id : " + id);
 		System.out.println("password : " + requestUser.getPassword());
 		System.out.println("email : " + requestUser.getEmail());

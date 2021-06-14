@@ -1,6 +1,7 @@
 package com.cos.mogaco.model;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -45,7 +46,7 @@ public class Board {
 	@Lob // 대용량 데이터
 	private String content; // 섬머노트 라이브러리 사용 <html> 태그가 섞여서 디자인 되므로 대용량 Data -> Lob
 	
-	@ColumnDefault("0") // 기본값 0 : int이므로 ' ' 는 필요 없음
+//	@ColumnDefault("0") // 기본값 0 : int이므로 ' ' 는 필요 없음
 	private int count; // 조회수
 	
 	// 연관관계 설정 - Board가 Many, User는 One -> 1명의 User는 여러개의 게시글 작성 가능 // 여러개의 게시글은 1명의 유저에 의해 쓰일 수 있음
@@ -60,5 +61,5 @@ public class Board {
 	// But 필요할 때 가져오기인데 상세보기 시 댓글이 다 보여야 하므로 EAGER 전략으로 변경
 	
 	@CreationTimestamp
-	private Timestamp createDate; // 게시글 작성 시간
+	private LocalDateTime createDate; // 게시글 작성 시간
 }

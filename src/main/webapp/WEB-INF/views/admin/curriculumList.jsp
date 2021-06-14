@@ -4,7 +4,7 @@
 
 <div class="container" style="margin-top:80px">
 
-전체 챌린지 리스트
+전체 커리큘럼
 
 </div>
 

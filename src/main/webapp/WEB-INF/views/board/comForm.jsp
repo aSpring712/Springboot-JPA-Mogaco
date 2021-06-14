@@ -7,26 +7,28 @@
 <h1>커뮤니티</h1>
 <p>게시글 입력하기</p>
 
-<form action="insert" method="post">
-	<input type="hidden" id="gubun" name="gubun" value="0">
-    <div class="form-group">
-      <label for="title">제목:</label>
-      <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
-    </div>
-    <div class="form-group">
-      <label for="pwd">글쓴이:</label>
-      <input type="text" class="form-control" id="writer" 
-      placeholder="Enter writer" name="writer" >
-    </div>
-      <div class="form-group">
-      <label for="content">내용</label>
-     <textarea class="form-control" rows="5" id="content" name="content"></textarea>
-    </div>
-    <div class="form-group text-right">
-      <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-     </div> 
-  </form>
+<form>
+		<div class="form-group">
+			<label for="title">Title</label>
+			<input type="text" class="form-control" placeholder="Enter title" id="title">
+		</div>
+		
+		<div class="form-group">
+			<label for="content">Content</label>
+			<textarea class="form-control summernote" rows="5" id="content"></textarea>
+		</div>
+
+	</form>
+	<button id="btn-save" class="btn btn-primary btn-sm">글쓰기 완료</button>
 
 </div>
+
+<script>
+  $('.summernote').summernote({
+    tabsize: 2,
+    height: 300
+  });
+</script>
+<script src="/js/board.js"></script>
 
 <%@ include file="../includes/footer.jsp" %>

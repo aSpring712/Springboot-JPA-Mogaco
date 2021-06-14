@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.cos.mogaco.model.Board;
 
 @Controller
-@RequestMapping("/challenge")
+@RequestMapping("/curriculum")
 public class ChallengeController {
 	
 	@GetMapping("list")

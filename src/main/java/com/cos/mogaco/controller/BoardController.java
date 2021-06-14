@@ -22,6 +22,8 @@ import com.cos.mogaco.model.Board;
 @RequestMapping("/board")
 public class BoardController {
 	
+	@Autowired
+	private BoardService boardService;
 	
 	// 공지사항 리스트 조회
 	@GetMapping("notice")
@@ -32,14 +34,12 @@ public class BoardController {
 	
 	// 커뮤니티 게시글 조회 -> 페이징
 	@GetMapping("list")
-	public String comList() {
-//		Page<Board> lists = boardService.findAllComboard(pageable);
-//		model.addAttribute("lists", lists);
-//		model.addAttribute("count", boardService.count());
+	public String comList(Model model) {
+		model.addAttribute("boards", boardService.list());
 		return "board/comList";
 	}
 	
-	// 커뮤니티 게시글 쓰기 폼 이동
+	// 커뮤니티 게시글 쓰기 폼 이동 -> USER 권한 필요
 	@GetMapping("insertForm")
 	public String insert() {
 		return "board/comForm";

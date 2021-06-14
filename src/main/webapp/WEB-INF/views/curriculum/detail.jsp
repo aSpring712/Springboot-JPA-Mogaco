@@ -4,8 +4,8 @@
 
 <div class="container" style="margin-top:80px">
 
-<h1>챌린지 목록</h1>
-<p>챌린지 상세보기</p>
+<h1>커리큘럼</h1>
+<p>커리큘럼 상세보기</p>
 
 
 
