@@ -4,12 +4,12 @@
 
 <div id="main">
 			<div class="inner">
-					<h1>Do Dream<br />
-					당신의 꿈을 이루어 줄 도전을 시작하세요.</h1>
+					<h1>코뮤니티<br />
+					코딩 커뮤니티 '코뮤니티'에서 '모각코'에 참여해보세요.</h1>
 				<section class="tiles">
 					<article class="style1">
 						<span class="image">
-							<img src="/resources/images/pic01.jpg" alt="" />
+							<img src="/resources/images/pic01.jpg" alt="img" />
 						</span>
 						<a href="/generic">
 							<h2>Magna</h2>

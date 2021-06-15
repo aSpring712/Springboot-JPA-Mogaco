@@ -32,7 +32,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // 넘버링 전략 -> 프로젝트에서 연결된 DB의 넘버링 전략을 따름(즉 Mysql의 전략)
 	private long id; // 오라클 : 시퀀스, mysql : auto_increment
 	
-	@Column(nullable = false, length = 30)
+	@Column(nullable = false, length = 30, unique = true)
 	private String username; // 아이디
 	
 	@Column(nullable = false, length = 100) // 해쉬(비밀번호 암호화)
@@ -50,6 +50,7 @@ public class User {
 	@Enumerated(EnumType.STRING)
 	private RoleType role; // ADMIN, USER
 	
+	// 내가 직접 시간을 넣으려면 Timestamp.valueOf(LocalDtaeTime.now())
 	@CreationTimestamp // 회원가입 시 table이 insert 될 때 현재 시간이 자동으로 입력됨 -> sysdate 또는 now 쿼리를 사용하지 않아도 됨
 	private Timestamp createDate; // 회원가입한 시간 
 	

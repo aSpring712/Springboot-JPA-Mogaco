@@ -5,7 +5,7 @@
 					<footer id="footer">
 						<div class="inner">
 							<section>
-								<h2>Get in touch</h2>
+								<h2>Get in touch🦜</h2>
 								<form method="post" action="#">
 									<div class="fields">
 										<div class="field half">
@@ -37,11 +37,12 @@
 								</ul>
 							</section>
 							<ul class="copyright">
-								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Demo Images: <a href="http://unsplash.com">Unsplash</a></li>
+								<li>&copy; E&B. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Demo Images: <a href="http://unsplash.com">Unsplash</a></li>
 							</ul>
 						</div>
 					</footer>
 				</div>
+				
 		<!-- Scripts -->
 			<script src="/resources/js/jquery.min.js"></script>
 			<script src="/resources/js/browser.min.js"></script>

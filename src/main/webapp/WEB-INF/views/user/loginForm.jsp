@@ -5,8 +5,8 @@
 <div class="container" style="margin-top:80px">
 	<h2>로그인</h2>
 	  <div class="form-group">
-	    <label for="id">아이디:</label>
-	    <input type="text" class="form-control" placeholder="Enter Userid" id="id" name="username">
+	    <label for="username">아이디:</label>
+	    <input type="text" class="form-control" placeholder="Enter ID" id="username" name="username">
 	  </div>
 	  <div class="form-group">
 	    <label for="password">비밀번호:</label>

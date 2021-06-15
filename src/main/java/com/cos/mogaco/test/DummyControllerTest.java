@@ -3,11 +3,15 @@ package com.cos.mogaco.test;
 import java.util.List;
 import java.util.function.Supplier;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,15 +45,46 @@ public class DummyControllerTest {
 		return users;
 	}
 	
+	// save 함수 -> id 전달 X 시 insert를 해주고
+	// svae 함수 -> id 전달 O 시 해당 id에 대한 data가 있으면 update
+	// save 함수 -> id 전달 O 시 해당 id에 대한 데이터가 없으면 insert 해줌
 	// email, password 두가지만 수정
+	
+	@DeleteMapping("/dummy/user/{id}")
+	public String delete(@PathVariable long id) {
+		try { // 해당 id가 있으면 삭제
+			userRepository.deleteById(id); // void로 return 값이 없는 메서드
+		} catch (EmptyResultDataAccessException e) { // db에 없는 경우 (Exception가 최상위)
+			return "삭제에 실패하였습니다. 해당 id는 DB에 없습니다.";
+		}
+		
+		return "삭제되었습니다. id : " + id;
+	}
+	
+	@Transactional // 함수 종료시에 자동 commit이 됨
 	@PutMapping("/dummy/user/{id}")
-	public User updateUser(@PathVariable int id, @RequestBody User requestUser) { // json 데이터를 받아오려면 @RequestBody 필요
+	public User updateUser(@PathVariable long id, @RequestBody User requestUser) { // json 데이터를 받아오려면 @RequestBody 필요
 		// json 데이터를 요청 => Java Object(MessageConverter)로 변환해서 받아줌
 		System.out.println("id : " + id);
 		System.out.println("password : " + requestUser.getPassword());
 		System.out.println("email : " + requestUser.getEmail());
 		
-		return null;
+		User user = userRepository.findById(id).orElseThrow(()->{ // dbd에서 수정하고자 하는 유저의 data 받아옴 -> 영속화(1차 캐시)
+			return new IllegalArgumentException("수정에 실패하였습니다.");
+		});
+		
+		user.setPassword(requestUser.getPassword()); // 영속화된 user obj의 값을 변경 
+		user.setEmail(requestUser.getEmail()); // 영속화된 user obj의 값을 변경
+		
+//		userRepository.save(user); -> save하지 않아도 @Transactional 어노테이션을 추가하니 수정이 된 것을 확인알 수 있음
+		
+		// 더티 체킹
+		
+		return user;
+		
+		// @Transaction 어노테이션 -> 종료 시 commit이 되며
+		// db에서 들고온 1차 캐시에 있던 user obj의 pwd와 email이 변경됐구나 인식(변경 감지) 
+		// db에 밀어넣어 줌(update문 수행)     =====> 더티 체킹
 	}
 
 	// {id} 주소로 파라미터를 전달받을 수 있음
